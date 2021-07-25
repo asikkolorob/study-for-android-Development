@@ -1,0 +1,11 @@
+				MY TASK
+
+Javascript = সকাল  ৭.০০ টা থেকে  ১১.০০ পর্যন্ত ।  
+URL= https://learnwith.hasinhayder.com/wp/course/fullstack-modern-javascript/
+
+NodeJs = সকাল  ১১.০০  টা থেকে  ২.০০ পর্যন্ত ।   
+URL= https://www.youtube.com/watch?v=X99HA_rREmA&list=PLkyGuIcLcmx2qXaZkjCL8-P78i2J5rDOa&index=3
+
+React & React-Native = মাগরিব থকে  ১১.০০ টা পর্যন্ত । 
+URL= https://www.youtube.com/watch?v=0qQLwaJKSC4&list=PLkyGuIcLcmx2abvUMewDtJf_jHjrX__0C
+     https://reactnative.rabbil.com/
