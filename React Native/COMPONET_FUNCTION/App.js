@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const App = () => {
   return (
     <View>
-      <Text>Test perpas</Text>
+      <Text>Test perpakfdnvkdvdzkxs</Text>
     </View>
   )
 }
