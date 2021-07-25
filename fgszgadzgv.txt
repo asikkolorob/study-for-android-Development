@@ -1,0 +1,9 @@
+{
+      name:'HP',
+      processor:'Gen Core i5, 8GB, 256GB M.2 SSD, GTX1650 4GB, 15.6" FHD, Windows',
+      price:'133,000',
+      SKU:'218140375_PK-1429076719',
+      shop:'Daraz',
+      id: 'bokk'
+
+    },
