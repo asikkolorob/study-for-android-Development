@@ -1,6 +1,6 @@
 
 export const initialState = [
-  
+ 
 ]
 
 export const reducer = (state,{type,payload}) => { 
@@ -13,7 +13,14 @@ export const reducer = (state,{type,payload}) => {
                 }
             ]
         case "REMOVE":
-            return state.filter((note) => payload !== note.id)    
+            return state.filter((note) => payload !== note.id)
+        case "UPDATE":
+            return state.map(record => {
+                if(payload.id === record.id)
+                    return payload
+                else
+                    return record
+            })
         default:
             return state
     }

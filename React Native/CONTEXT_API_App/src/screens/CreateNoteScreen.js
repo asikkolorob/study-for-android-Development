@@ -1,34 +1,46 @@
 import React, {useState, useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Touchable } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground, StatusBar} from 'react-native';
 
 import { NotesContext } from '../context/NotesContext';
 
-const CreateNoteScreen = () => {
+const CreateNoteScreen = ({navigation}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const { state, dispatch } = useContext(NotesContext);
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.TextInputStyle}>Enter Title</Text>
-            <TextInput 
-                value={title}
-                onChangeText={(text) => setTitle(text)}
-                style={styles.input}
-            />
-            <Text style={styles.TextInputStyle}>Enter Content</Text>
-            <TextInput
-                value={content}
-                onChangeText={(text) => setContent(text)}
-                style={styles.input}
-                numberOfLines={3}
-                multiline={true}
-            />
-            <TouchableOpacity
-                style={styles.btnStyle}
-                onPress={() => { dispatch({type:'ADD',payload:{title,content}})}}
+        <View style={{flex:1}}>
+            <StatusBar backgroundColor="#e29578" barStyle="dark-content" hidden={false} />
+            <ImageBackground
+                source={require('../assets/images/undefined.jpg')}
+                style={{flex:1}}
+                resizeMode="cover"
             >
-                <Text style={styles.SVstyle}>Save</Text>
-            </TouchableOpacity>
+                <View style={styles.container}>
+                    <Text style={styles.TextInputStyle}>Enter Title</Text>
+                    <TextInput 
+                        value={title}
+                        onChangeText={(text) => setTitle(text)}
+                        style={styles.input}
+                    />
+                    <Text style={styles.TextInputStyle}>Enter Content</Text>
+                    <TextInput
+                        value={content}
+                        onChangeText={(text) => setContent(text)}
+                        style={styles.input}
+                        numberOfLines={3}
+                        multiline={true}
+                    />
+                    <TouchableOpacity
+                        style={styles.btnStyle}
+                        onPress={() => { dispatch({type:'ADD',payload:{title,content}})
+                            navigation.goBack()
+                        }}
+                    >
+                        <Text style={styles.SVstyle}>Save</Text>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
     )
 }

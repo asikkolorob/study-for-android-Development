@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, ImageBackground, StatusBar} from 'react-native';
 import SimpleLineIcon from 'react-native-vector-icons/dist/AntDesign';
 
 import { NotesContext } from '../context/NotesContext';
@@ -10,6 +10,7 @@ const ListNotesScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar backgroundColor="#e29578" barStyle="dark-content" hidden={false} />
             <ImageBackground 
                 source={require('../assets/images/undefined(2).jpg')}
                 style={styles.imgStyle}
@@ -30,12 +31,12 @@ const ListNotesScreen = ({navigation}) => {
                     renderItem={({item}) => {
                         return (
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('ShowNote')}
+                                onPress={() => navigation.navigate('ShowNote',{id:item.id})}
                             >
                                 <View style={styles.deleteContainer}>
                                     <Text style={styles.titleStyle}>{item.title}</Text>
                                     {/* <Text style={styles.titleStyle}>{item.id}</Text> */}
-                                    <SimpleLineIcon name='delete' size={25} 
+                                    <SimpleLineIcon name='delete' size={25} color='#000'
                                         onPress={() => dispatch({ type:'REMOVE',payload:item.id})}
                                     />
                                 </View>
@@ -64,15 +65,16 @@ const styles = StyleSheet.create({
         padding:10,
         marginBottom:5,
         elevation:4,
-        backgroundColor:'#a5a58d',
+        backgroundColor:'#99d98c',
         borderRadius:16
     },
     titleStyle:{
-        fontSize:22
+        fontSize:22,
+        color:'#000'
     },
     btnPlusStyle:{
         marginVertical:10,
-        backgroundColor:'blue',
+        backgroundColor:'#43aa8b',
         width:80,
         height:80,
         borderRadius:40,
@@ -80,6 +82,6 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     imgStyle:{
-        
+        flex:1
     }
 })
