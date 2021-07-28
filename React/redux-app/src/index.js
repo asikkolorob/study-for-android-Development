@@ -1,29 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {configureStore} from '@reduxjs/toolkit';
+
 import {Provider} from 'react-redux';
-
-const initialState = {
-  name:'Ashikur Rahman',
-  age:19,
-  status:'coder'
-}
-
-const store = configureStore({
-  reducer : (state) => {
-    return state
-  },
-  preloadedState:initialState
-})
+import store from './store/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider value={store}>
-      <App />
-    </Provider>
+      <Provider store={store}>
+        <App />
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
