@@ -7,12 +7,12 @@ var server = CreateHttp.createServer ( function ( req,res ) {
         res.end ();
     }
     else if (req.url == '/about') {
-        res.writeHead(200, { 'Content-Type': 'text/html' })
+        res.writeHead(200, { 'Content-Type':'text/html' })
         res.write('<h1>This is About Page</h1>')
         res.end ();
     }
     else if (req.url == '/contact') {
-        res.writeHead(200, { ' -Type': 'text/html' })
+        res.writeHead(200, { 'Content-Type':'text/html' })
         res.write('<h1>This is Contact Page</h1>')
         res.end ();
     }
@@ -20,3 +20,8 @@ var server = CreateHttp.createServer ( function ( req,res ) {
 
 server.listen (3030);
 console.log ('server run success');
+
+/**
+ * create node pakage
+ * cmm : npm init --y
+ */
