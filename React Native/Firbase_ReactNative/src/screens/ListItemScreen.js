@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
-import { Container,Content, Card, CardItem, Thumbnail,  Button, Icon, Left, Body } from 'native-base';
+import { StyleSheet, Text, View, FlatList,TouchableOpacity,Image } from 'react-native';
 
 const ListItemScreen = () => {
     const MyItem = [
@@ -22,39 +21,45 @@ const ListItemScreen = () => {
     ]
     const renderItem = (item) => {
         return (
-            <Container>
-                <Content>
-                    <Card style={{ flex: 0 }}>
-                        <CardItem>
-                            <Left>
-                                <Thumbnail source={{ uri: item.myImage }} />
-                                <Body>
-                                    <Text>{item.name}</Text>
-                                    <Text note>{item.year}</Text>
-                                </Body>
-                            </Left>
-                        </CardItem>
-                        <CardItem>
-                            <Body>
-                                <Image source={{ uri: item.image }} style={{ height: 200, width: 375, flex: 1 }} />
-                                <Text>
-                                    {item.desc}
-                                </Text>
-                            </Body>
-                        </CardItem>
-                        <CardItem>
-                            <Left>
-                                <Button transparent textStyle={{ color: '#87838B' }}>
-                                    <Icon name="logo-github" />
-                                    <Text style={{marginRight:10}}>1,926 stars</Text>
-                                    <Text>{item.phone}</Text>
-                                </Button>
-                            </Left>
-                        </CardItem>
-                    </Card>
-                    
-                </Content>
-            </Container>
+            <View style={{
+                margin: 5,
+                height: '48%',
+                width:'95%',
+                borderRadius: 12,
+                elevation: 6
+            }}>
+                <View style={{
+                    margin: 5,
+                    padding: 10,
+                    flexDirection: 'row'
+                }}>
+                    <Image
+                        source={require('../assets/processed.png')}
+                        style={{ height: 61, width: 60 }}
+                    />
+                    <View>
+                        <Text style={{ marginTop: 10, marginLeft: 5 }}>{item.name}</Text>
+                        <Text style={{ marginLeft: 5 }}>{item.year}</Text>
+                    </View>
+                </View>
+                <View>
+                    <Image
+                        source={require('../assets/pexels-cesar-perez-733745.jpg')}
+                        style={{ height: 200, width: 366, marginLeft: 12 }}
+                    />
+                    <Text style={{ marginLeft: 12, marginVertical: 5 }}>{item.desc}</Text>
+                </View>
+                <View style={{ marginLeft: 15, marginTop: 20, flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                        <Text>200</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{ marginLeft: 15 }}
+                    >
+                        <Text>Call Sellar</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         );
     }
     return (
