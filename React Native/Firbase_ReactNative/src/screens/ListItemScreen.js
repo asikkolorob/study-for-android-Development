@@ -26,7 +26,7 @@ const ListItemScreen = () => {
                 height: '48%',
                 width:'95%',
                 borderRadius: 12,
-                elevation: 6
+                
             }}>
                 <View style={{
                     margin: 5,

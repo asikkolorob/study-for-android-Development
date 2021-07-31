@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity,Alert } from 'react-native';
+
+import auth from '@react-native-firebase/auth';
 
 const SignupScreen = ({navigation}) => {
     const [email, SetEmail] = useState('');
     const [password, SetPassword] = useState('');
+
+    const userSignup = async () => {
+        if (!email || !password){
+            Alert.alert('please all all the fields');
+            return
+        } 
+        try {
+            await auth().createUserWithEmailAndPassword(email, password)
+        } catch (err) {
+            Alert.alert('something went wrong please try different password')
+        }
+    }
+
     return (
         <View style={styles.mainCon}>
-            <StatusBar backgroundColor="#BC9115" barStyle="dark-content" hidden={false} />
             <View style={styles.imgCon}>
                 {/*Login Screen Profile Image*/}
                 <Image style={styles.img} source={require('../assets/processed.png')} />
@@ -31,6 +45,7 @@ const SignupScreen = ({navigation}) => {
                 />
                 <TouchableOpacity
                     style={styles.btn}
+                    onPress={() => userSignup()}
                 >
                     <Text style={styles.btnText}>Sign Up</Text>
                 </TouchableOpacity>
