@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "FirebaseApp.app"
-               BlueprintName = "FirebaseApp"
-               ReferencedContainer = "container:FirebaseApp.xcodeproj">
+               BuildableName = "BlogApp.app"
+               BlueprintName = "BlogApp"
+               ReferencedContainer = "container:BlogApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "FirebaseAppTests.xctest"
-               BlueprintName = "FirebaseAppTests"
-               ReferencedContainer = "container:FirebaseApp.xcodeproj">
+               BuildableName = "BlogAppTests.xctest"
+               BlueprintName = "BlogAppTests"
+               ReferencedContainer = "container:BlogApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "FirebaseApp.app"
-            BlueprintName = "FirebaseApp"
-            ReferencedContainer = "container:FirebaseApp.xcodeproj">
+            BuildableName = "BlogApp.app"
+            BlueprintName = "BlogApp"
+            ReferencedContainer = "container:BlogApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "FirebaseApp.app"
-            BlueprintName = "FirebaseApp"
-            ReferencedContainer = "container:FirebaseApp.xcodeproj">
+            BuildableName = "BlogApp.app"
+            BlueprintName = "BlogApp"
+            ReferencedContainer = "container:BlogApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.firebaseapp"
+        applicationId "com.junedomingo.blogapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
