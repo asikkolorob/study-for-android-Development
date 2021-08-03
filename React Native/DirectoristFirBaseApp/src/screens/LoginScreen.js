@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View,TextInput, TouchableOpacity, Alert } from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import auth from '@react-native-firebase/auth';
 
 const LoginScreen = ({ navigation }) => {
     const [email, SetEmail] = useState('');
     const [password, SetPassword] = useState('');
-
-    const userLogin = async () => {
-        if (!email || !password) {
-            Alert.alert('please all all the fields');
-            return
-        }
-        try {
-            await auth().signInWithEmailAndPassword(email, password)
-        } catch (err) {
-            Alert.alert('something went wrong please try different password')
-        }
-    }
 
     return (
         <View style={styles.mainCon}>
@@ -53,7 +39,7 @@ const LoginScreen = ({ navigation }) => {
                 />
                 <TouchableOpacity
                     style={styles.btn}
-                    onPress={() => userLogin()}
+                    // onPress={() => userLogin()}
                 >
                     <Text style={styles.btnText}>Login</Text>
                 </TouchableOpacity>

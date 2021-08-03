@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/FontAwesome';
 
@@ -14,7 +14,7 @@ const SearchBar = () => {
                     style={{ marginTop: 10, marginLeft: 3 }}
                 />
             </View>
-
+                
             <TextInput
                 placeholder='Search'
                 style={styles.input}

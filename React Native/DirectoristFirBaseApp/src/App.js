@@ -1,5 +1,5 @@
-import React, {useState,useEffect} from 'react';
-import { StyleSheet, Text, View ,StatusBar} from 'react-native';
+import React from 'react';
+import { StyleSheet, View ,StatusBar} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -7,13 +7,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import SimpleLineIcons from 'react-native-vector-icons/Feather';
 
-import auth from '@react-native-firebase/auth';
-
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
-import CreateAdScreen from './screens/CreateAdScreen';
 import AccountScreen from './screens/AccountScreen';
+import AllListings from './screens/AllListings';
+import Location from './screens/Location';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,13 +48,26 @@ const TabNavigator = () => {
             </View>
           )
         }}/>
-      <Tab.Screen name="CreactAd" component={CreateAdScreen} 
+      <Tab.Screen name="AllList" component={AllListings} 
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <SimpleLineIcons
-                name={'plus-circle'} size={30}
+                name={'search'} size={30}
+                color={focused ? '#000' : '#748c94'}
+              />
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="Location" component={Location}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View>
+              <SimpleLineIcons
+                name={'compass'} size={30}
                 color={focused ? '#000' : '#748c94'}
               />
             </View>
@@ -64,7 +76,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen name="Acconut" component={AccountScreen}
         options={{
-          headerShown: false,
+          headerTitle:'My Account',
           tabBarIcon: ({ focused }) => (
             <View>
               <SimpleLineIcons
@@ -79,10 +91,8 @@ const TabNavigator = () => {
 }
 
 const Navigation = () => {
-  const user = 'fbdfhdfh'
-  // useEffect(() => {
-
-  // },[])
+  const user = 'gvjjhjhvjh'
+  
   return(
     <NavigationContainer>
       {user ? <TabNavigator/> : <AuthNavigator/>}

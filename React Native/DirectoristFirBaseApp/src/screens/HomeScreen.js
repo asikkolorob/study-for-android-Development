@@ -1,10 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, View, ImageBackground, ScrollView, SafeAreaView } from 'react-native';
+import NewListing from './components/NewListing';
 
 import PopularCategorist from './components/PopularCategorist';
 import PopularPost from './components/PopularPost';
 import PostCard from './components/PostCard';
 import SearchBar from './components/SearchBar';
+import TopLocation from './components/TopLocation';
 
 const HomeScreen = () => {
     return (
@@ -25,12 +27,14 @@ const HomeScreen = () => {
                 <PopularPost />
                 <PopularCategorist />
                 <PostCard />
+                <TopLocation />
+                <NewListing />
             </ScrollView>
         </SafeAreaView>
     )
 }
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({
     con: {
