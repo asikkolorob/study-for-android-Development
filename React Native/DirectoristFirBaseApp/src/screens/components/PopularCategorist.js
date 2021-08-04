@@ -8,7 +8,7 @@ const PopularCategorist = ({navigation}) => {
         <View style={{ flex: 1 }}>
             <View style={styles.popularHadingCon}>
                 <Text style={styles.text1}>Popular Categories</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate({ routeName:'AllCategories'})}>
                     <Text style={styles.text2}>Show all</Text>
                 </TouchableOpacity>
             </View>
@@ -16,7 +16,7 @@ const PopularCategorist = ({navigation}) => {
                 horizontal={true}
             >
                 <View style={styles.popularCardCon}>
-                    <TouchableOpacity style={styles.post}>
+                    <TouchableOpacity style={styles.postPopularCatagories}>
                         <ImageBackground
                             source={require('../../assets/breads-691467_1920.jpg')}
                             style={styles.imgBox}
@@ -24,10 +24,10 @@ const PopularCategorist = ({navigation}) => {
                             <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
                                 style={styles.icon}
                             />
-                            <Text style={styles.text}>Shopping</Text>
+                            <Text style={styles.textPopular}>Shopping</Text>
                         </ImageBackground>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.post}>
+                    <TouchableOpacity style={styles.postPopularCatagories}>
                         <ImageBackground
                             source={require('../../assets/breads-691467_1920.jpg')}
                             style={styles.imgBox}
@@ -35,10 +35,10 @@ const PopularCategorist = ({navigation}) => {
                             <SimpleLineIcons name='coffee' size={28} color='#fff'
                                 style={styles.icon}
                             />
-                            <Text style={styles.text}>Restaurants</Text>
+                            <Text style={styles.textPopular}>Restaurants</Text>
                         </ImageBackground>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.post}>
+                    <TouchableOpacity style={styles.postPopularCatagories}>
                         <ImageBackground
                             source={require('../../assets/breads-691467_1920.jpg')}
                             style={styles.imgBox}
@@ -46,7 +46,7 @@ const PopularCategorist = ({navigation}) => {
                             <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
                                 style={styles.icon}
                             />
-                            <Text style={styles.text}>Restaurants</Text>
+                            <Text style={styles.textPopular}>Restaurants</Text>
                         </ImageBackground>
                     </TouchableOpacity>
                 </View>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    post: {
+    postPopularCatagories: {
         backgroundColor: '#fff',
         padding: 10,
         marginTop: 10,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         height: 200,
         width: 320,
     },
-    text: {
+    textPopular: {
         fontSize: 15,
         color: '#fff',
         marginTop: 5,

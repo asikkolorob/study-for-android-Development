@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, ImageBackground, ScrollView, SafeAreaView } from 'react-native';
-import NewListing from './components/NewListing';
+import { StyleSheet, Text, View, ImageBackground, ScrollView, SafeAreaView,TouchableOpacity } from 'react-native';
 
+import NewListing from './components/NewListing';
 import PopularCategorist from './components/PopularCategorist';
 import PopularPost from './components/PopularPost';
 import PostCard from './components/PostCard';
@@ -55,5 +55,28 @@ const styles = StyleSheet.create({
     title2: {
         color: '#fff',
         fontSize: 15
+    },
+    conPost: {
+
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginVertical: 20
+    },
+    post: {
+        backgroundColor: '#fff',
+        padding: 12,
+        borderRadius: 12,
+        height: 150,
+        width: 200,
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 10
+    },
+    postText: {
+        fontSize: 18,
+        fontWeight: '900',
+        marginTop: 5
     }
 })
