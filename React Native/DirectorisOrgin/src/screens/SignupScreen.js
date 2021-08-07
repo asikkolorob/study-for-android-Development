@@ -3,33 +3,34 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'reac
 
 import SimpleLineIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {SignupStyles } from '../style/Styles';
+
 import { AuthContext } from './components/Context';
 
 const SignupScreen = ({ navigation }) => {
+
     const [email, SetEmail] = useState('');
     const [password, SetPassword] = useState('');
 
-    
-
     return (
-        <View style={styles.mainCon}>
-            <View style={styles.imgCon}>
+        <View style={SignupStyles.mainCon}>
+            <View style={SignupStyles.imgCon}>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Text style={styles.text}>Skip Now</Text>
+                    <Text style={SignupStyles.text}>Skip Now</Text>
                 </TouchableOpacity>
             </View>
             <View style={{ marginVertical: 20, marginHorizontal: 20, marginTop: 100 }}>
                 <Text style={{ fontSize: 35, fontWeight: 'bold' }}>Hey there</Text>
                 <Text style={{ fontSize: 16, }}>It's good to see you</Text>
             </View>
-            <View style={styles.inputBosCon}>
+            <View style={SignupStyles.inputBosCon}>
                 {/*Login Form*/}
                 <Text style={{ fontWeight: 'bold', marginLeft: 23, fontSize: 17 }}>Email address</Text>
                 <TextInput
                     placeholder='Email'
                     value={email}
                     placeholderTextColor='gray'
-                    style={styles.input}
+                    style={SignupStyles.input}
                     onChangeText={text => SetEmail(text)}
                 />
                 <Text style={{ fontWeight: 'bold', marginLeft: 23, fontSize: 17 }}>Password</Text>
@@ -37,19 +38,19 @@ const SignupScreen = ({ navigation }) => {
                     placeholder='Password'
                     value={password}
                     placeholderTextColor='gray'
-                    style={styles.input}
+                    style={SignupStyles.input}
                     secureTextEntry={true}
                     onChangeText={text => SetPassword(text)}
                 />
                 <TouchableOpacity
-                    style={styles.btn}
+                    style={SignupStyles.btn}
                     // onPress={() => { signIn()}}
                 >
-                    <Text style={styles.btnText}>Signup</Text>
+                    <Text style={SignupStyles.btnText}>Signup</Text>
                 </TouchableOpacity>
                 <View style={{ marginVertical: 50, }}>
                     <TouchableOpacity
-                        style={styles.btnFac}
+                        style={SignupStyles.btnFac}
                     // onPress={() => userLogin()}
                     >
                         <View style={{ flexDirection: 'row' }}>
@@ -64,7 +65,7 @@ const SignupScreen = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnFac}
+                        style={SignupStyles.btnFac}
                     // onPress={() => userLogin()}
                     >
                         <View style={{ flexDirection: 'row' }}>
@@ -93,53 +94,5 @@ const SignupScreen = ({ navigation }) => {
 export default SignupScreen;
 
 const styles = StyleSheet.create({
-    mainCon: {
-    },
-    img: {
-        height: 205,
-        width: 200,
-    },
-    imgCon: {
-        alignItems: 'flex-end',
-        marginRight: 20,
-        marginTop: 5
-    },
-    text: {
-        fontSize: 20,
-    },
-    input: {
-        margin: 20,
-        padding: 10,
-        borderWidth: 3,
-        borderRadius: 13,
-        borderColor: 'grey',
-        height: 50,
-        color: '#000',
-        elevation: 1
-    },
-    inputBosCon: {
-        height: '60%',
-    },
-    btn: {
-        backgroundColor: '#000',
-        padding: 12,
-        borderRadius: 12,
-        marginHorizontal: 30,
-        marginTop: 30,
-    },
-    btnText: {
-        fontWeight: 'bold',
-        fontSize: 20,
-        textAlign: 'center',
-        color: '#fff'
-
-    },
-    btnFac: {
-        backgroundColor: '#fff',
-        padding: 12,
-        borderRadius: 12,
-        marginHorizontal: 30,
-        marginTop: 30,
-        elevation: 1
-    }
+    
 })

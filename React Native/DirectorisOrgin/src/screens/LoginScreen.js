@@ -2,20 +2,16 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View,TextInput, TouchableOpacity, Alert } from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { LoginStyles } from '../style/Styles';
 import Users from '../config/Users';
 import { AuthContext } from './components/Context';
 
 const LoginScreen = ({ navigation }) => {
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isValidUser, setIsValidUser] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
-
-    // const [data,setData] = React.useState({
-    //     username: '',
-    //     password: ''
-    // })
 
     const { signIn } = React.useContext(AuthContext)
 
@@ -57,24 +53,24 @@ const LoginScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.mainCon}>
-            <View style={styles.imgCon}>
+        <View style={LoginStyles.mainCon}>
+            <View style={LoginStyles.imgCon}>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Text style={styles.text}>Skip Now</Text>
+                    <Text style={LoginStyles.text}>Skip Now</Text>
                 </TouchableOpacity>
             </View>
             <View style={{marginVertical:20,marginHorizontal:20,marginTop:100}}>
                 <Text style={{fontSize:35,fontWeight:'bold'}}>Hey there</Text>
                 <Text style={{fontSize:16,}}>It's good to see you</Text>
             </View>
-            <View style={styles.inputBosCon}>
+            <View style={LoginStyles.inputBosCon}>
                 {/*Login Form*/}
                 <Text style={{fontWeight:'bold',marginLeft:23,fontSize:17}}>Email address</Text>
                 <TextInput
                     placeholder='Email'
                     value={username}
                     placeholderTextColor='gray'
-                    style={styles.input}
+                    style={LoginStyles.input}
                     onChangeText={text => setUsername(text)}
                     onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                 />
@@ -88,7 +84,7 @@ const LoginScreen = ({ navigation }) => {
                     placeholder='Password'
                     value={password}
                     placeholderTextColor='gray'
-                    style={styles.input}
+                    style={LoginStyles.input}
                     secureTextEntry={true}
                     onChangeText={text => setPassword(text)}
                     onEndEditing={(e) => handleValidPassword(e.nativeEvent.text)}
@@ -100,14 +96,14 @@ const LoginScreen = ({ navigation }) => {
                 }
                 
                 <TouchableOpacity
-                    style={styles.btn}
-                    onPress={() => {lodingHandle(username, password)}}
+                    style={LoginStyles.btn}
+                    onPress={() => { lodingHandle(username, password) }}
                 >
-                    <Text style={styles.btnText}>Login</Text>
+                    <Text style={LoginStyles.btnText}>Login</Text>
                 </TouchableOpacity>
                 <View style={{marginVertical:50,}}>
                     <TouchableOpacity
-                        style={styles.btnFac}
+                        style={LoginStyles.btnFac}
                         // onPress={() => userLogin()}
                     >
                         <View style={{flexDirection:'row'}}>
@@ -122,7 +118,7 @@ const LoginScreen = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnFac}
+                        style={LoginStyles.btnFac}
                     // onPress={() => userLogin()}
                     >
                         <View style={{ flexDirection: 'row' }}>
@@ -151,53 +147,5 @@ const LoginScreen = ({ navigation }) => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-    mainCon: {
-    },
-    img: {
-        height: 205,
-        width: 200,
-    },
-    imgCon: {
-        alignItems:'flex-end',
-        marginRight:20,
-        marginTop:5
-    },
-    text: {
-        fontSize: 20,
-    },
-    input: {
-        margin: 20,
-        padding: 10,
-        borderWidth: 3,
-        borderRadius: 13,
-        borderColor: 'grey',
-        height: 50,
-        color: '#000',
-        elevation:1
-    },
-    inputBosCon: {
-        height: '60%',
-    },
-    btn: {
-        backgroundColor: '#000',
-        padding: 12,
-        borderRadius: 12,
-        marginHorizontal: 30,
-        marginTop: 30,
-    },
-    btnText: {
-        fontWeight: 'bold',
-        fontSize: 20,
-        textAlign:'center',
-        color:'#fff'
-
-    },
-    btnFac:{
-        backgroundColor: '#fff',
-        padding: 12,
-        borderRadius: 12,
-        marginHorizontal: 30,
-        marginTop: 30,
-        elevation:1
-    }
+   
 })

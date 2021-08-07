@@ -1,157 +1,69 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, ScrollView, } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, FlatList} from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/FontAwesome';
 
+import { AllCategoriesStyles } from '../../style/Styles';
+
 const AllCategories = () => {
+
+    const PopularCategoriesItem = [
+        { Title: 'Shopping', Image: 'https://cdn.pixabay.com/photo/2015/11/07/11/46/fashion-1031469_960_720.jpg' },
+        { Title: 'Restaurants', Image: 'https://cdn.pixabay.com/photo/2017/07/31/11/22/people-2557408_960_720.jpg' },
+        { Title: 'Shop', Image: 'https://cdn.pixabay.com/photo/2019/05/05/18/58/girl-4181395_960_720.jpg' }
+    ];
+
+    const PopularCategoriesView = ({title,image}) => {
+        return(
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                <View style={AllCategoriesStyles.popularCardCon}>
+                    <TouchableOpacity style={AllCategoriesStyles.post}>
+                        <ImageBackground
+                            source={{uri:image}}
+                            style={AllCategoriesStyles.imgBox}
+                        >
+                            <SimpleLineIcons name='coffee' size={28} color='#fff'
+                                style={AllCategoriesStyles.icon}
+                            />
+                            <Text style={AllCategoriesStyles.text}>{title}</Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
+                    
+                </View>
+                <View>
+                    <View style={AllCategoriesStyles.popularCardCon2}>
+                        <TouchableOpacity style={AllCategoriesStyles.post}>
+                            <ImageBackground
+                                source={{uri:image}}
+                                style={AllCategoriesStyles.imgBox}
+                            >
+                                <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
+                                    style={AllCategoriesStyles.icon}
+                                />
+                                <Text style={AllCategoriesStyles.text}>{title}</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        
+                    </View>
+                </View>
+            </View>
+        );
+    }
+
     return (
         <View style={{flex:1}}>
             <View>
-                <View style={styles.popularHadingCon}>
-                    <Text style={styles.text1}>All Categories</Text>
+                <View style={AllCategoriesStyles.popularHadingCon}>
+                    <Text style={AllCategoriesStyles.text1}>All Categories</Text>
                 </View>
-                <ScrollView>
-                    <View style={{flexDirection:'row',justifyContent:'center'}}>
-                        <View style={styles.popularCardCon}>
-                            <TouchableOpacity style={styles.post}>
-                                <ImageBackground
-                                    source={require('../../assets/breads-691467_1920.jpg')}
-                                    style={styles.imgBox}
-                                >
-                                    <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                        style={styles.icon}
-                                    />
-                                    <Text style={styles.text}>Shopping</Text>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.post}>
-                                <ImageBackground
-                                    source={require('../../assets/breads-691467_1920.jpg')}
-                                    style={styles.imgBox}
-                                >
-                                    <SimpleLineIcons name='coffee' size={28} color='#fff'
-                                        style={styles.icon}
-                                    />
-                                    <Text style={styles.text}>Restaurants</Text>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.post}>
-                                <ImageBackground
-                                    source={require('../../assets/breads-691467_1920.jpg')}
-                                    style={styles.imgBox}
-                                >
-                                    <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                        style={styles.icon}
-                                    />
-                                    <Text style={styles.text}>Restaurants</Text>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.post}>
-                                <ImageBackground
-                                    source={require('../../assets/breads-691467_1920.jpg')}
-                                    style={styles.imgBox}
-                                >
-                                    <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                        style={styles.icon}
-                                    />
-                                    <Text style={styles.text}>Restaurants</Text>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.post}>
-                                <ImageBackground
-                                    source={require('../../assets/breads-691467_1920.jpg')}
-                                    style={styles.imgBox}
-                                >
-                                    <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                        style={styles.icon}
-                                    />
-                                    <Text style={styles.text}>Restaurants</Text>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.post}>
-                                <ImageBackground
-                                    source={require('../../assets/breads-691467_1920.jpg')}
-                                    style={styles.imgBox}
-                                >
-                                    <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                        style={styles.icon}
-                                    />
-                                    <Text style={styles.text}>Restaurants</Text>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <View style={styles.popularCardCon2}>
-                                <TouchableOpacity style={styles.post}>
-                                    <ImageBackground
-                                        source={require('../../assets/breads-691467_1920.jpg')}
-                                        style={styles.imgBox}
-                                    >
-                                        <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                            style={styles.icon}
-                                        />
-                                        <Text style={styles.text}>Shopping</Text>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.post}>
-                                    <ImageBackground
-                                        source={require('../../assets/breads-691467_1920.jpg')}
-                                        style={styles.imgBox}
-                                    >
-                                        <SimpleLineIcons name='coffee' size={28} color='#fff'
-                                            style={styles.icon}
-                                        />
-                                        <Text style={styles.text}>Restaurants</Text>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.post}>
-                                    <ImageBackground
-                                        source={require('../../assets/breads-691467_1920.jpg')}
-                                        style={styles.imgBox}
-                                    >
-                                        <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                            style={styles.icon}
-                                        />
-                                        <Text style={styles.text}>Restaurants</Text>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.post}>
-                                    <ImageBackground
-                                        source={require('../../assets/breads-691467_1920.jpg')}
-                                        style={styles.imgBox}
-                                    >
-                                        <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                            style={styles.icon}
-                                        />
-                                        <Text style={styles.text}>Restaurants</Text>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.post}>
-                                    <ImageBackground
-                                        source={require('../../assets/breads-691467_1920.jpg')}
-                                        style={styles.imgBox}
-                                    >
-                                        <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                            style={styles.icon}
-                                        />
-                                        <Text style={styles.text}>Restaurants</Text>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.post}>
-                                    <ImageBackground
-                                        source={require('../../assets/breads-691467_1920.jpg')}
-                                        style={styles.imgBox}
-                                    >
-                                        <SimpleLineIcons name='shopping-cart' size={28} color='#fff'
-                                            style={styles.icon}
-                                        />
-                                        <Text style={styles.text}>Restaurants</Text>
-                                    </ImageBackground>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ScrollView>
+                <FlatList
+                    data={PopularCategoriesItem}
+                    keyExtractor={(a, id) => id}
+                    renderItem={({item}) => <PopularCategoriesView
+                        title={item.Title}
+                        image={item.Image}
+                    />}
+                />
             </View>
         </View>
     )
@@ -160,41 +72,5 @@ const AllCategories = () => {
 export default AllCategories;
 
 const styles = StyleSheet.create({
-    popularHadingCon: {
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        marginHorizontal: 25
-    },
-    text1: {
-        fontSize: 30,
-        marginTop:20
-    },
-    popularCardCon: {
-        marginVertical: 20,
-        marginHorizontal: 6,
-    },
-    imgBox: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    post: {
-        backgroundColor: '#fff',
-        padding: 10,
-        marginTop: 10,
-        elevation: 10,
-        borderRadius: 20,
-        height: 180,
-        width: 250,
-    },
-    text: {
-        fontSize: 15,
-        color: '#fff',
-        marginTop: 5,
-        fontWeight: '700'
-    },
-    popularCardCon2:{
-        marginVertical: 20,
-        
-    }
+    
 })

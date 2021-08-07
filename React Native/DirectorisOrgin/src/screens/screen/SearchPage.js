@@ -1,13 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View,TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View,TouchableOpacity, ScrollView ,TextInput} from 'react-native';
 
+import { SearchPageStyles } from '../../style/Styles';
 import SimpleLineIcons from 'react-native-vector-icons/MaterialIcons';
 
 const SearchPage = ({navigation}) => {
     return (
         <View style={{flex:1}}>
             <View style={{flexDirection:'row'}}>
-                <View style={styles.TopCategoriesBackBTN}>
+                <View style={SearchPageStyles.TopCategoriesBackBTN}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <SimpleLineIcons
                             name='keyboard-backspace'
@@ -16,11 +17,11 @@ const SearchPage = ({navigation}) => {
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.TopCategoriesBarCon}>
+                <View style={SearchPageStyles.TopCategoriesBarCon}>
                     <ScrollView horizontal={true}>
                         <View style={{flexDirection:'row'}}>
                             <TouchableOpacity>
-                                <View style={styles.TopCategoriesBTN1}>
+                                <View style={SearchPageStyles.TopCategoriesBTN1}>
                                     <View>
                                         <SimpleLineIcons
                                             name='add-location-alt'
@@ -34,7 +35,7 @@ const SearchPage = ({navigation}) => {
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <View style={styles.TopCategoriesBTN1}>
+                                <View style={SearchPageStyles.TopCategoriesBTN1}>
                                     <View>
                                         <SimpleLineIcons
                                             name='home'
@@ -48,7 +49,7 @@ const SearchPage = ({navigation}) => {
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <View style={styles.TopCategoriesBTN1}>
+                                <View style={SearchPageStyles.TopCategoriesBTN1}>
                                     <View>
                                         <SimpleLineIcons
                                             name='event'
@@ -62,7 +63,7 @@ const SearchPage = ({navigation}) => {
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <View style={styles.TopCategoriesBTN1}>
+                                <View style={SearchPageStyles.TopCategoriesBTN1}>
                                     <View>
                                         <SimpleLineIcons
                                             name='local-dining'
@@ -78,7 +79,11 @@ const SearchPage = ({navigation}) => {
                         </View>
                     </ScrollView>
                 </View>
-                
+            </View>
+            <View style={{alignItems:'center',marginVertical:30}}>
+                <View style={SearchPageStyles.textInput}>
+                    <Text>jhdgbdjbdj</Text>
+                </View>
             </View>
         </View>
     )

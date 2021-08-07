@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image,ScrollView,TextInput } from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/FontAwesome';
+import { AllListingsStyles } from '../style/Styles';
 
 const AllListings = () => {
     return (
         <View style={{alignItems:'center'}}>
-            <View style={styles.searchCon}>
+            <View style={AllListingsStyles.searchCon}>
                 <View>
                     <SimpleLineIcons
                         name='search'
@@ -18,13 +19,13 @@ const AllListings = () => {
 
                 <TextInput
                     placeholder='Search'
-                    style={styles.input}
+                    style={AllListingsStyles.input}
                     placeholderTextColor='#000'
                 />
             </View>
             <ScrollView>
                 <View style={{padding:15}}>
-                    <View style={styles.cardCon}>
+                    <View style={AllListingsStyles.cardCon}>
                         <View style={{ height: '40%' }}>
                             <ImageBackground
                                 source={require('../assets/bicycle-1872682_1920.jpg')}
@@ -52,7 +53,7 @@ const AllListings = () => {
                             </View>
                         </View>
                     </View>
-                    <View style={styles.cardCon}>
+                    <View style={AllListingsStyles.cardCon}>
                         <View style={{ height: '40%' }}>
                             <ImageBackground
                                 source={require('../assets/bicycle-1872682_1920.jpg')}
@@ -80,7 +81,7 @@ const AllListings = () => {
                             </View>
                         </View>
                     </View>
-                    <View style={styles.cardCon}>
+                    <View style={AllListingsStyles.cardCon}>
                         <View style={{ height: '40%' }}>
                             <ImageBackground
                                 source={require('../assets/bicycle-1872682_1920.jpg')}
@@ -108,7 +109,7 @@ const AllListings = () => {
                             </View>
                         </View>
                     </View>
-                    <View style={styles.cardCon}>
+                    <View style={AllListingsStyles.cardCon}>
                         <View style={{ height: '40%' }}>
                             <ImageBackground
                                 source={require('../assets/bicycle-1872682_1920.jpg')}
@@ -136,7 +137,7 @@ const AllListings = () => {
                             </View>
                         </View>
                     </View>
-                    <View style={styles.cardCon}>
+                    <View style={AllListingsStyles.cardCon}>
                         <View style={{ height: '40%' }}>
                             <ImageBackground
                                 source={require('../assets/bicycle-1872682_1920.jpg')}
@@ -172,33 +173,4 @@ const AllListings = () => {
 
 export default AllListings;
 
-const styles = StyleSheet.create({
-    cardCon: {
-        height: 485,
-        width: 467,
-        padding: 10,
-        elevation: 4,
-        borderRadius: 14,
-        backgroundColor: '#fff',
-        marginHorizontal: 20,
-        marginVertical: 10
-    },
-    searchCon: {
-        height: 50,
-        width: '95%',
-        marginTop: 15,
-        backgroundColor: '#fff',
-        borderRadius: 8,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        
-    },
-    input: {
-        height: '100%',
-        width: '100%',
-        color: '#000',
-        fontSize: 20,
-        paddingLeft: 10
-
-    }
-})
+const styles = StyleSheet.create({})

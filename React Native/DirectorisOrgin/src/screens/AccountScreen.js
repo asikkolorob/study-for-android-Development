@@ -4,25 +4,28 @@ import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/Entypo';
 
 import { AuthContext } from './components/Context';
+import { AccountStyles } from '../style/Styles';
 
-const AccountScreen = ({props}) => {
+const AccountScreen = ({route,navigation}) => {
 
     const { signOut } = React.useContext(AuthContext)
+
+    
     return (
         <View>
             {/*Profie Section*/}
-            <View style={styles.AccountProfile}>
+            <View style={AccountStyles.AccountProfile}>
                 <Image 
                     source={require('../assets/processed.png')}
                     style={{height:60,width:60,marginHorizontal:10,marginTop:22}}
                 />
                 <View style={{marginTop:32,marginLeft:15}}>
-                    <Text style={{fontSize:20,fontWeight:'bold'}}>Ashik</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}></Text>
                     <Text style={{color:'grey'}}>ashik@gmail.com</Text>
                 </View>
             </View>
             <View style={{flexDirection:'row'}}>
-                <View style={styles.AccountListings}>
+                <View style={AccountStyles.AccountListings}>
                     {/*Listings*/}
                     <View>
                         <TouchableOpacity>
@@ -168,7 +171,7 @@ const AccountScreen = ({props}) => {
                     <View>
                         <View style={{ marginVertical: 20 }}>
                             <TouchableOpacity
-                                style={styles.btnAdd}
+                                style={AccountStyles.btnAdd}
                             // onPress={() => userLogin()}
                             >
                                 <View style={{ flexDirection: 'row',justifyContent:'center' }}>
@@ -189,7 +192,7 @@ const AccountScreen = ({props}) => {
             {/*Sign Out Butoon*/}
             <View style={{marginVertical:20}}>
                 <TouchableOpacity
-                    style={styles.btnFac}
+                    style={AccountStyles.btnFac}
                     onPress={() => { signOut()}}
                 >
                     <View style={{ flexDirection: 'row' }}>
@@ -211,39 +214,5 @@ const AccountScreen = ({props}) => {
 export default AccountScreen;
 
 const styles = StyleSheet.create({
-    AccountProfile:{
-        height:120,
-        width:'100%',
-        backgroundColor:'#fff',
-        marginVertical:20,  
-        flexDirection:'row'
-    },
-    AccountListings: {
-        height:510,
-        width:'100%',
-        backgroundColor:'#fff',
-        padding:10,
-        
-    },
-    btnFac: {
-        backgroundColor: '#fff',
-        padding: 12,
-        borderRadius: 12,
-        marginHorizontal: 30,
-        marginTop: 10,
-        elevation: 1
-    },
-    btnAdd:{
-        backgroundColor: '#e5e5e5',
-        padding: 12,
-        borderRadius: 12,
-        marginHorizontal: 30,
-        marginTop: 10,
-        elevation: 1
-    },
-    listbackIcon:{
-        height: 510,
-        backgroundColor: '#fff',
-        padding: 10,
-    }
+    
 })
