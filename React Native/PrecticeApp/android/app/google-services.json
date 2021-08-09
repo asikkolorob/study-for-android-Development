@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "174435119192",
+    "project_id": "test-project-9774a",
+    "storage_bucket": "test-project-9774a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174435119192:android:d9dc442072456c772b5a2d",
+        "android_client_info": {
+          "package_name": "com.precticeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174435119192-o1s2acu3lnbttabl9mbhcflv25vf8sqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0nwkRxxeDEwxQFdHfD6lF_Mx-eVYb0AA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174435119192-o1s2acu3lnbttabl9mbhcflv25vf8sqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
