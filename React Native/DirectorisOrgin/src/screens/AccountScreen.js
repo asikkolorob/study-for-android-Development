@@ -2,14 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/Entypo';
-
-import { AuthContext } from './components/Context';
 import { AccountStyles } from '../style/Styles';
 
+import auth from '@react-native-firebase/auth';
+
 const AccountScreen = ({route,navigation}) => {
-
-    const { signOut } = React.useContext(AuthContext)
-
     
     return (
         <View>
@@ -20,8 +17,8 @@ const AccountScreen = ({route,navigation}) => {
                     style={{height:60,width:60,marginHorizontal:10,marginTop:22}}
                 />
                 <View style={{marginTop:32,marginLeft:15}}>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}></Text>
-                    <Text style={{color:'grey'}}>ashik@gmail.com</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{auth().currentUser.uid}</Text>
+                    <Text style={{color:'grey'}}>{auth().currentUser.email}</Text>
                 </View>
             </View>
             <View style={{flexDirection:'row'}}>
@@ -193,7 +190,7 @@ const AccountScreen = ({route,navigation}) => {
             <View style={{marginVertical:20}}>
                 <TouchableOpacity
                     style={AccountStyles.btnFac}
-                    onPress={() => { signOut()}}
+                    onPress={() => auth().signOut()}
                 >
                     <View style={{ flexDirection: 'row' }}>
                         <SimpleLineIcons

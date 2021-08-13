@@ -214,6 +214,15 @@ export const SignupStyles = {
         marginHorizontal: 30,
         marginTop: 30,
     },
+    btnSelect:{
+        backgroundColor: '#000',
+        padding: 12,
+        borderRadius: 12,
+        marginHorizontal: 30,
+        marginTop: 30,
+        height:60,
+        width:200
+    },
     btnText: {
         fontWeight: 'bold',
         fontSize: 20,

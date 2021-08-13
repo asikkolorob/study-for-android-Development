@@ -9,19 +9,18 @@ import { View } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
 import AllListings from './screens/AllListings';
 import AccountScreen from './screens/AccountScreen';
-import Location from './screens/Location';
+
 import AllCategories from './screens/screen/AllCategories';
 import SearchPage from './screens/screen/SearchPage';
 import TopLocationPage from './screens/screen/TopLocationPage';
-import LoginScreen from './screens/LoginScreen';
+import Masages from './screens/Masages';
 
 const Tab = createBottomTabNavigator();
 
 const HomeStack = createStackNavigator();
-const LoginStack = createStackNavigator();
 const ListingsStack = createStackNavigator();
 const AccountStack = createStackNavigator();
-const LocationStack = createStackNavigator();
+const MasagesStack = createStackNavigator();
 
 const MainTabsScreen = () => {
     return (
@@ -46,11 +45,11 @@ const MainTabsScreen = () => {
                     </View>
                 )
             }} />
-            <Tab.Screen name="Location" component={LocationStackScreen} options={{
+            <Tab.Screen name="Masagas" component={MasagesStackScreen} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                         <SimpleLineIcons
-                            name={'compass'} size={30}
+                            name={'message-circle'} size={30}
                             color={focused ? '#000' : '#748c94'}
                         />
                     </View>
@@ -111,12 +110,12 @@ const AccountStackScreen = ({ navigation }) => (
     </AccountStack.Navigator>
 );
 
-const LocationStackScreen = ({ navigation }) => (
-    <LocationStack.Navigator>
-        <LocationStack.Screen name="Location" component={Location}
+const MasagesStackScreen = ({ navigation }) => (
+    <MasagesStack.Navigator>
+        <MasagesStack.Screen name="Masage" component={Masages}
             options={{
                 headerShown: false
             }}
         />
-    </LocationStack.Navigator>
+    </MasagesStack.Navigator>
 );

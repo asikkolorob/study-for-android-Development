@@ -8,7 +8,7 @@ const HomePage = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Text style={{ color: '#fff', fontSize: 40 }}>Home page</Text>
-            <Text style={{ color: '#fff', fontSize: 40 }}>User information</Text>
+            <Text style={{ color: '#fff', fontSize: 30 }}>User information</Text>
             <Text style={{ color: '#fff', fontSize: 20 }}>{auth().currentUser.email}</Text>
             <TouchableOpacity
                     style={styles.btn1}
@@ -16,7 +16,19 @@ const HomePage = ({navigation}) => {
                 >
                     <Text style={styles.btnText}>Firebase Store</Text>
             </TouchableOpacity>
-            <View style={{ marginTop: 450 }}>
+            <TouchableOpacity
+                style={styles.btn1}
+                onPress={() => navigation.navigate('BasicHook')}
+            >
+                <Text style={styles.btnText}>Basic React Hook</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.btn1}
+                onPress={() => navigation.navigate('Async')}
+            >
+                <Text style={styles.btnText}>Async-Storage</Text>
+            </TouchableOpacity>
+            <View style={{ marginTop: 100 }}>
                 <TouchableOpacity
                     style={styles.btn}
                     onPress={() => auth().signOut()}

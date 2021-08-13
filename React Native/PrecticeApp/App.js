@@ -10,6 +10,10 @@ import Login from './src/LoginFirebaseFunctionality/Login';
 import HomePage from './src/LoginFirebaseFunctionality/HomePage';
 import FirebaseStore from './src/LoginFirebaseFunctionality/FirebaseStore';
 import CreacteAds from './src/LoginFirebaseFunctionality/CreacteAds';
+import ReactHook from './src/reactHook/ReactHook';
+import UseSateScreen from './src/reactHook/UseSateScreen';
+import UseEffectScreen from './src/reactHook/UseEffectScreen';
+import Async_Storage from './src/Async-Storage/Async_Storage';
 
 
 const RootStack = createStackNavigator();
@@ -41,7 +45,35 @@ const MainScreen = () => {
           headerShown: false
         }}
       />
+      <MainStack.Screen name="BasicHook" component={ReactHookScreen}
+        options={{
+          headerShown: false
+        }}
+      />
+      <MainStack.Screen name="Async" component={Async_StorageScreen}
+        options={{
+          headerShown: false
+        }}
+      />
     </MainStack.Navigator>
+  )
+}
+
+const Async_StorageScreen = () => {
+  return (
+    <FireStoreStack.Navigator>
+      <FireStoreStack.Screen name='Async' component={Async_Storage} />
+    </FireStoreStack.Navigator>
+  )
+}
+
+const ReactHookScreen = () => {
+  return (
+    <FireStoreStack.Navigator>
+      <FireStoreStack.Screen name='Hook' component={ReactHook} />
+      <FireStoreStack.Screen name='UseStateScreen' component={UseSateScreen} />
+      <FireStoreStack.Screen name='UseEffectScreen' component={UseEffectScreen} />
+    </FireStoreStack.Navigator>
   )
 }
 

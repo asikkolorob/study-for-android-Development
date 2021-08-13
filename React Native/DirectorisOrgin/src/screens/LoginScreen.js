@@ -1,61 +1,35 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View,TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View,TextInput, TouchableOpacity} from 'react-native';
 
 import SimpleLineIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import auth from '@react-native-firebase/auth';
+
 import { LoginStyles } from '../style/Styles';
-import Users from '../config/Users';
-import { AuthContext } from './components/Context';
+
 
 const LoginScreen = ({ navigation }) => {
 
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isValidUser, setIsValidUser] = useState(true);
-    const [isValidPassword, setIsValidPassword] = useState(true);
 
-    const { signIn } = React.useContext(AuthContext)
-
-    const lodingHandle = (userName,password) => {
-        const foundUser = Users.filter( item => {
-            return userName == item.username && password == item.password;
-        } );
-
-        if (username.length == 0 || password.length == 0) {
-            Alert.alert('Wrong Input', 'username or password field cannot be empty', [
-                { text: 'Okay' }
-            ]);
-            return;
+    const _Login = async () => {
+        if (!email || !password) {
+            alert('plaese all all the felds')
+            return
+        }
+        try {
+            await auth().signInWithEmailAndPassword(email, password)
+        } catch (error) {
+            alert('Sumthing wrong please try Again')
         }
 
-        if(foundUser.length == 0){
-            Alert.alert('Invalid User','username or password is incorrect',[
-                {text: 'Okay'}
-            ]);
-            return;
-        }
-        signIn(foundUser);
-    }
-
-    const handleValidUser = (username) => {
-        if( username.trim().length >= 4 ){
-            setIsValidUser(true);
-        }else{
-            setIsValidUser(false);
-        }
-    }
-
-    const handleValidPassword = (password) => {
-        if (password.trim().length >= 8) {
-            setIsValidPassword(true);
-        } else {
-            setIsValidPassword(false);
-        }
     }
 
     return (
         <View style={LoginStyles.mainCon}>
             <View style={LoginStyles.imgCon}>
-                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity>
                     <Text style={LoginStyles.text}>Skip Now</Text>
                 </TouchableOpacity>
             </View>
@@ -65,21 +39,14 @@ const LoginScreen = ({ navigation }) => {
             </View>
             <View style={LoginStyles.inputBosCon}>
                 {/*Login Form*/}
-                <Text style={{fontWeight:'bold',marginLeft:23,fontSize:17}}>Email address</Text>
                 <TextInput
                     placeholder='Email'
-                    value={username}
+                    value={email}
                     placeholderTextColor='gray'
                     style={LoginStyles.input}
-                    onChangeText={text => setUsername(text)}
-                    onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
+                    onChangeText={(userEmail) => setEmail(userEmail)}
+                    
                 />
-                { isValidUser ? null :
-                    <View>
-                        <Text style={{marginBottom:16,marginHorizontal:20,color:'red'}}>userName must be 4 characters long.</Text>
-                    </View>
-                }
-                <Text style={{ fontWeight: 'bold', marginLeft: 23, fontSize: 17 }}>Password</Text>
                 <TextInput
                     placeholder='Password'
                     value={password}
@@ -87,17 +54,11 @@ const LoginScreen = ({ navigation }) => {
                     style={LoginStyles.input}
                     secureTextEntry={true}
                     onChangeText={text => setPassword(text)}
-                    onEndEditing={(e) => handleValidPassword(e.nativeEvent.text)}
+                    
                 />
-                { isValidPassword ? null : 
-                    <View>
-                        <Text style={{ marginBottom: 16, marginHorizontal: 20, color: 'red' }}>Password must be 8 characters long.</Text>
-                    </View>
-                }
-                
                 <TouchableOpacity
                     style={LoginStyles.btn}
-                    onPress={() => { lodingHandle(username, password) }}
+                    onPress={() => _Login()}
                 >
                     <Text style={LoginStyles.btnText}>Login</Text>
                 </TouchableOpacity>
@@ -119,7 +80,7 @@ const LoginScreen = ({ navigation }) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={LoginStyles.btnFac}
-                    // onPress={() => userLogin()}
+                        // onPress={() => googleLogin()}
                     >
                         <View style={{ flexDirection: 'row' }}>
                             <SimpleLineIcons
@@ -128,7 +89,7 @@ const LoginScreen = ({ navigation }) => {
                                 size={32}
                             />
                             <View style={{ justifyContent: 'center', marginLeft: 100 }}>
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Continue with Facebook</Text>
+                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Continue with Google</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
